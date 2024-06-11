@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/logo.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#fff" />
+    <title>GE CoPilot™</title>
+    <style>
+        /* Light theme styles */
+        
+         :root {
+            --background-color: #f9f9f9;
+            --text-color: #333;
+        }
+        /* Dark theme styles */
+        
+        .dark-theme {
+            --background-color: #333;
+            --text-color: #fff;
+        }
+        /* Global styles */
+        
+        body {
+            background-color: var(--background-color);
+            color: var(--text-color);
+            transition: background-color 0.2s ease-in-out;
+        }
+        
+        .theme-toggle {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+        }
+        
+        .theme-toggle-label {
+            display: flex;
+            align-items: center;
+        }
+        
+        .theme-toggle-image {
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <label class="theme-toggle-label" for="theme-toggle">
+      <img class="theme-toggle-image" src="2856481-200.png" alt="Light mode icon">
+      Theme
+  </label>
+    <input type="checkbox" id="theme-toggle" class="theme-toggle">
+
+    <div id="root"></div>
+
+    <script>
+        const themeToggle = document.getElementById('theme-toggle');
+        const body = document.body;
+        const themeToggleImage = document.querySelector('.theme-toggle-image');
+
+        themeToggle.addEventListener('change', () => {
+            body.classList.toggle('dark-theme');
+            themeToggleImage.src = body.classList.contains('dark-theme') ? '2856481-200.png' : '2856481-200.png';
+        });
+    </script>
+
+    <script type="module" src="/src/main.jsx"></script>
+</body>
+
+</html>
